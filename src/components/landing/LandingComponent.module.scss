@@ -1,0 +1,28 @@
+div {
+  &.landing-component {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1.8125rem;
+
+    .typography {
+      display: grid;
+      grid-auto-flow: row;
+      gap: 0.625rem;
+
+      h1 {
+        font-family: Rubik-medium;
+      }
+
+      p {
+        opacity: 0.6;
+        font-size: 1.125rem;
+      }
+    }
+
+    .create-account {
+      display: grid;
+      grid-auto-flow: row;
+      gap: 0.625rem;
+    }
+  }
+}
