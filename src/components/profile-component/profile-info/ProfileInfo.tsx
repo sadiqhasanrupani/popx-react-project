@@ -12,7 +12,7 @@ const ProfileInfo: FC<ProfileInfoProps> = ({ className, name, email }) => {
   return (
     <div className={`${styles["profile-info"]} ${className}`}>
       <p>{name ? name : "Marry Doe"}</p>
-      <p>{name ? name : "Marry@Gmail.com"}</p>
+      <p>{email ? email : "Marry@Gmail.com"}</p>
     </div>
   );
 };

@@ -1,19 +1,23 @@
 @use "../../../../global/colors" as *;
 
-button {
-  &.primary-btn {
-    background-color: $primary;
+.primary-btn {
+  background-color: $primary;
+  color: $white;
+  width: 100%;
+  height: 2.875rem;
+  font-size: 1rem;
+  font-family: Rubik-medium;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3 ease-in-out all;
+
+  &:disabled {
+    background-color: $disable;
     color: $white;
-    width: 100%;
-    height: 2.875rem;
-    font-size: 1rem;
-    font-family: Rubik-medium;
-    border: none;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }

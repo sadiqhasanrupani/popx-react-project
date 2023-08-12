@@ -1,13 +1,12 @@
 form {
   &.form {
-    display: flex;
-    flex-direction: column;
-    gap: 215px;
 
     .form-input {
-      display: grid;
-      grid-auto-flow: row;
+      display: flex;
+      flex-direction: column;
       gap: 1.25rem;
+
+      margin-bottom: 1.125rem;
     }
   }
 }

@@ -3,22 +3,16 @@
 div {
   &.input-div {
     position: relative;
-    height: 3.4375rem;
     label {
       position: absolute;
       left: 0.5625rem;
       top: -0.45rem;
       background: #f7f8f9 0% 0% no-repeat padding-box;
-      min-width: 6rem;
-      max-width: 6.3rem;
-      height: 1.0625rem;
 
-      display: flex;
 
       .label-div {
-        display: grid;
-        grid-auto-flow: column;
-        max-width: 100px;
+        display: flex;
+        flex-direction: row;
         p {
           left: 0;
           color: $primary;
@@ -46,6 +40,18 @@ div {
       &::placeholder {
         color: $gray;
         font: normal normal normal 14px/17px Rubik-regular;
+      }
+    }
+  }
+
+  &.is-valid {
+    input {
+      border-color: $red !important;
+
+      color: $red !important;
+
+      &::placeholder {
+        color: $red !important;
       }
     }
   }

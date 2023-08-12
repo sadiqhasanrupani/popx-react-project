@@ -1,32 +1,32 @@
+import { useCallback, useState } from "react";
+
 //^ styles
 import styles from "./LoginComponent.module.scss";
-
-//^ interface
-import { SignupContent } from "../signup-component/signup-form/SignupForm";
 
 //^ component
 import Typography from "../signup-component/typography/Typography";
 import LoginInput from "./login-input/LoginInput";
 import PrimaryBtn from "../../UI/buttons/primary-btn/PrimaryBtn";
-
-const INPUT_CONTENT: Array<SignupContent> = [
-  {
-    id: 1,
-    label: "Email Address",
-    placeholder: "Enter email address",
-    required: false,
-    type: "email",
-  },
-  {
-    id: 2,
-    label: "Password",
-    placeholder: "Enter password",
-    required: false,
-    type: "password",
-  },
-];
+import { useNavigate } from "react-router-dom";
 
 const LoginComponent = () => {
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const navigate = useNavigate();
+
+  const getLoginDataHandler = useCallback(
+    (data: boolean) => {
+      setIsFormValid(data);
+    },
+    [isFormValid]
+  );
+
+  const submitHandler = (e: any) => {
+    e.preventDefault();
+
+    navigate("/profile");
+  };
+
   return (
     <div className={styles["login-component"]}>
       <Typography
@@ -35,9 +35,9 @@ const LoginComponent = () => {
         className={styles["typography"]}
       />
 
-      <form className={styles["form"]}>
-        <LoginInput INPUT_CONTENT={INPUT_CONTENT} />
-        <PrimaryBtn buttonText="Login" />
+      <form className={styles["form"]} onSubmit={submitHandler}>
+        <LoginInput onLoginInput={getLoginDataHandler} />
+        <PrimaryBtn buttonText="Login" disabled={!isFormValid} />
       </form>
     </div>
   );

@@ -11,6 +11,7 @@ const PrimaryBtn: React.FC<PrimaryBtnProps> = ({
   onChange,
   onClick,
   onFocus,
+  disabled
 }) => {
   return (
     <button
@@ -18,6 +19,7 @@ const PrimaryBtn: React.FC<PrimaryBtnProps> = ({
       onChange={onChange}
       onClick={onClick}
       onFocus={onFocus}
+      disabled={disabled}
     >
       {buttonText}
     </button>

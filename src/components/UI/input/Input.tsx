@@ -6,6 +6,7 @@ import styles from "./Input.module.scss";
 //^ interface props
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  hasError?: boolean;
 }
 
 const Input: FC<InputProps> = ({
@@ -21,9 +22,14 @@ const Input: FC<InputProps> = ({
   type,
   label,
   placeholder,
+  hasError,
 }) => {
   return (
-    <div className={styles["input-div"]}>
+    <div
+      className={`${styles["input-div"]} ${
+        hasError ? styles["is-valid"] : undefined
+      }`}
+    >
       <label htmlFor={id}>
         <div className={styles["label-div"]}>
           <p>{label}</p>
@@ -41,6 +47,7 @@ const Input: FC<InputProps> = ({
         onChange={onChange}
         className={`${styles["input"]} ${className}`}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </div>
   );
