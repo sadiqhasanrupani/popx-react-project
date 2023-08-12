@@ -63,6 +63,7 @@ const SignupForm: FC<SignupFormProps> = ({ onSignupForm }) => {
     isValid: fullNameIsValid,
     onChangeHandler: onFullNameChange,
     onBlurHandler: onFullNameBlur,
+    hasError: fullNameHasError,
   } = fullNameInput;
 
   const {
@@ -70,6 +71,7 @@ const SignupForm: FC<SignupFormProps> = ({ onSignupForm }) => {
     isValid: phoneNumberIsValid,
     onChangeHandler: onPhoneNumberChange,
     onBlurHandler: onPhoneNumberBlur,
+    hasError: phoneNumberHasError,
   } = phoneNumberInput;
 
   const {
@@ -77,6 +79,7 @@ const SignupForm: FC<SignupFormProps> = ({ onSignupForm }) => {
     isValid: emailIsValid,
     onChangeHandler: onEmailChange,
     onBlurHandler: onEmailBlur,
+    hasError: emailHasError,
   } = emailInput;
 
   const {
@@ -84,6 +87,7 @@ const SignupForm: FC<SignupFormProps> = ({ onSignupForm }) => {
     isValid: passwordIsValid,
     onChangeHandler: onPasswordChange,
     onBlurHandler: onPasswordBlur,
+    hasError: passHasError,
   } = passwordInput;
 
   const {
@@ -139,6 +143,7 @@ const SignupForm: FC<SignupFormProps> = ({ onSignupForm }) => {
             value={fullName}
             onChange={onFullNameChange}
             onBlur={onFullNameBlur}
+            hasError={fullNameHasError}
           />
           <Input
             id="Phone number"
@@ -149,6 +154,7 @@ const SignupForm: FC<SignupFormProps> = ({ onSignupForm }) => {
             value={phoneNumber}
             onChange={onPhoneNumberChange}
             onBlur={onPhoneNumberBlur}
+            hasError={phoneNumberHasError}
           />
           <Input
             id="Email address"
@@ -159,6 +165,7 @@ const SignupForm: FC<SignupFormProps> = ({ onSignupForm }) => {
             value={email}
             onChange={onEmailChange}
             onBlur={onEmailBlur}
+            hasError={emailHasError}
           />
           <Input
             id="password"
@@ -169,6 +176,7 @@ const SignupForm: FC<SignupFormProps> = ({ onSignupForm }) => {
             value={password}
             onChange={onPasswordChange}
             onBlur={onPasswordBlur}
+            hasError={passHasError}
           />
           <Input
             id="company name"
