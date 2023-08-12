@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 //^ styles
 import styles from "./LoginInput.module.scss";
@@ -17,8 +17,9 @@ import useInput from "../../../../hooks/use-input";
 //^ UI
 import Input from "../../../UI/input/Input";
 
-const LoginInput: FC<LoginInputProps> = ({ onLoginInput }) => {
+const LoginInput: React.FC<LoginInputProps> = ({ onLoginInput }) => {
   const signUpData = useSelector((state: any) => state.signup.signupData);
+  const dispatch = useDispatch();
 
   const {
     enteredValue: email,
@@ -26,7 +27,7 @@ const LoginInput: FC<LoginInputProps> = ({ onLoginInput }) => {
     onChangeHandler: onEmailChange,
     onBlurHandler: onEmailBlur,
   } = useInput({
-    validateValue: (value) => /\S+@\S+\.\S+/.test(value),
+    validateValue: (value: string) => /\S+@\S+\.\S+/.test(value),
   });
 
   const {
@@ -34,29 +35,17 @@ const LoginInput: FC<LoginInputProps> = ({ onLoginInput }) => {
     isValid: isPasswordValid,
     onChangeHandler: onPasswordChange,
     onBlurHandler: onPasswordBlur,
-  } = useInput({
-    validateValue: (value) => value.trim() !== "",
-  });
+  } = useInput({ validateValue: (value: string) => value.trim() !== "" });
 
-  const isEmailMatch =
-    signUpData && signUpData.emailID && signUpData.emailID === email
-      ? true
-      : false;
-
-  const isPassMatch =
-    signUpData && signUpData.password && signUpData.password === password
-      ? true
-      : false;
-
+  const isEmailMatch = signUpData?.emailID === email;
+  const isPassMatch = signUpData?.password === password;
   const formIsValid = signUpData
     ? isEmailMatch && isPassMatch
     : isEmailValid && isPasswordValid;
 
-  console.log(isEmailMatch, isPassMatch);
-
   useEffect(() => {
     onLoginInput(formIsValid);
-  }, [formIsValid]);
+  }, [formIsValid, onLoginInput]);
 
   return (
     <div className={styles["login-input"]}>
@@ -69,7 +58,7 @@ const LoginInput: FC<LoginInputProps> = ({ onLoginInput }) => {
         value={email}
         onChange={onEmailChange}
         onBlur={onEmailBlur}
-        hasError={!isEmailMatch}
+        hasError={signUpData && signUpData.emailID && !isEmailMatch}
       />
       <Input
         id="pass"
@@ -80,7 +69,7 @@ const LoginInput: FC<LoginInputProps> = ({ onLoginInput }) => {
         value={password}
         onChange={onPasswordChange}
         onBlur={onPasswordBlur}
-        hasError={!isPassMatch}
+        hasError={signUpData && signUpData.password && !isPassMatch}
       />
     </div>
   );

@@ -14,7 +14,7 @@ const ProfileComponent = () => {
   const signupData = useSelector((state: any) => state.signup.signupData);
 
   return (
-    <>
+    <div className={styles['profile-component']}>
       <main className={styles["profile-component"]}>
         <div className={styles["content"]}>
           <div className={styles["item-1"]}>
@@ -28,7 +28,7 @@ const ProfileComponent = () => {
         </div>
       </main>
       <Border />
-    </>
+    </div>
   );
 };
 

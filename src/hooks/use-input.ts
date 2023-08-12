@@ -4,7 +4,16 @@ interface UseInputProps {
   validateValue: (value: string) => boolean;
 }
 
-const useInput = ({ validateValue }: UseInputProps) => {
+interface UseInputResult {
+  enteredValue: string;
+  isValid: boolean;
+  hasError: boolean;
+  onChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+  onBlurHandler: (e: FocusEvent<HTMLInputElement>) => void;
+  reset: () => void;
+}
+
+const useInput = ({ validateValue }: UseInputProps): UseInputResult => {
   const [enteredValue, setEnteredValue] = useState("");
   const [isTouched, setIsTouched] = useState(false);
 

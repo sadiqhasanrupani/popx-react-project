@@ -17,3 +17,12 @@ main {
     }
   }
 }
+
+div {
+  &.profile-component {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
