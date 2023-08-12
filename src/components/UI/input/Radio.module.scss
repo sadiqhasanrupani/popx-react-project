@@ -1,0 +1,57 @@
+/* Radio.module.scss */
+
+@use "../../../global/colors" as *;
+
+.radioDiv {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+
+  .radioInput {
+    position: relative;
+    display: none; /* Hide the default radio input */
+  }
+
+  .label {
+    font-size: 0.875rem;
+    line-height: 1.0625rem;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    cursor: pointer;
+  }
+
+  .radioCustom {
+    width: 1.375rem;
+    height: 1.375rem;
+    border: 2px solid $gray; /* Use your primary color */
+    border-radius: 50%;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    transition:
+      border-color 0.3s ease-in-out,
+      background-color 0.3s ease-in-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background-color: hsla(260, 100%, 57%, 1);
+    }
+  }
+
+  .radioInput:checked ~ .radioCustom {
+    border-color: hsla(260, 100%, 57%, 1); /* Use your primary color */
+  }
+
+  .radioInput:checked ~ .radioCustom::after {
+    display: block;
+  }
+}

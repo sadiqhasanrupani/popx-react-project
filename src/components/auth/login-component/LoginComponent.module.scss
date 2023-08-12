@@ -1,0 +1,15 @@
+div {
+  &.login-component {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem !important;
+
+    .form {
+      height: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: -.875rem;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+main {
+  &.profile-component {
+    padding: 1.875rem 1.125rem 1.875rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.875rem;
+
+      .item-1 {
+        display: flex;
+        gap: 1.25rem;
+      }
+    }
+  }
+}

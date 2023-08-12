@@ -1,0 +1,12 @@
+div {
+  &.agency-enquiry {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 0.625rem;
+
+    .choice-input {
+      display: flex;
+      gap: 1.4375rem;
+    }
+  }
+}

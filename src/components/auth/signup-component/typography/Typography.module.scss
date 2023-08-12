@@ -1,0 +1,18 @@
+@use "../../../../global/colors" as *;
+
+div {
+  &.typography {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 0.875rem;
+    h1 {
+      color: $black;
+      font-family: Rubik-medium;
+      font-size: 1.75rem;
+    }
+    p {
+      opacity: 0.6;
+      font-size: 1.125rem;
+    }
+  }
+}

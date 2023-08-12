@@ -1,0 +1,13 @@
+form {
+  &.form {
+    display: flex;
+    flex-direction: column;
+    gap: 215px;
+
+    .form-input {
+      display: grid;
+      grid-auto-flow: row;
+      gap: 1.25rem;
+    }
+  }
+}

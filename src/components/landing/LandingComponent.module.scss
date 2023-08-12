@@ -10,7 +10,9 @@ div {
       gap: 0.625rem;
 
       h1 {
-        font-family: Rubik-medium;
+        font: normal normal medium 28px/17px Rubik-medium;
+
+        font-family: Rubik-medium !important;
       }
 
       p {

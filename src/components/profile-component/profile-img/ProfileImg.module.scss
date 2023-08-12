@@ -1,0 +1,20 @@
+div {
+  &.profile-img {
+    position: relative;
+    .lady-img {
+      border-radius: 50%;
+      width: 4.75rem;
+      height: 4.75rem;
+    }
+    .camera-img {
+      position: absolute;
+      bottom: 0;
+      transform: translate(-1rem, -0.5rem);
+      
+      width: 1.3125rem;
+      height: 1.4375rem;
+
+      border-radius: 50%;
+    }
+  }
+}

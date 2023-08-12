@@ -2,7 +2,7 @@ $background-color: hsl(210, 14%, 97%);
 
 //^ main colors
 $white: hsl(0, 0%, 100%);
-$black: hsl(207, 13%, 13%);
+$black: hsla(207, 13%, 13%, 1);
 
 //^ button
 $primary: hsl(260, 100%, 57%);
@@ -31,3 +31,6 @@ $disable-600: hsla(0, 0%, 80%, 0.6);
 $disable-700: hsla(0, 0%, 80%, 0.7);
 $disable-800: hsla(0, 0%, 80%, 0.8);
 $disable-900: hsla(0, 0%, 80%, 0.9);
+
+//^ red color
+$red: #DD4A3D;

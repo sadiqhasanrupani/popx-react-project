@@ -1,0 +1,11 @@
+div {
+  &.border-box {
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .border {
+      border: 1px dashed hsla(0, 0%, 80%, 1);
+    }
+  }
+}
