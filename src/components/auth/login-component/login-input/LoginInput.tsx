@@ -1,5 +1,4 @@
 import { FC, HTMLAttributes, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 //^ styles
 import styles from "./LoginInput.module.scss";
@@ -18,9 +17,6 @@ import useInput from "../../../../hooks/use-input";
 import Input from "../../../UI/input/Input";
 
 const LoginInput: React.FC<LoginInputProps> = ({ onLoginInput }) => {
-  const signUpData = useSelector((state: any) => state.signup.signupData);
-  const dispatch = useDispatch();
-
   const {
     enteredValue: email,
     isValid: isEmailValid,
@@ -37,13 +33,17 @@ const LoginInput: React.FC<LoginInputProps> = ({ onLoginInput }) => {
     onBlurHandler: onPasswordBlur,
   } = useInput({ validateValue: (value: string) => value.trim() !== "" });
 
-  const isEmailMatch = signUpData?.emailID === email;
-  const isPassMatch = signUpData?.password === password;
-  const formIsValid = signUpData
-    ? isEmailMatch && isPassMatch
-    : isEmailValid && isPasswordValid;
+  const formIsValid = isEmailValid && isPasswordValid;
 
   useEffect(() => {
+    const data = {
+      formIsValid,
+      loginData: {
+        email,
+        password,
+      },
+    };
+
     onLoginInput(formIsValid);
   }, [formIsValid, onLoginInput]);
 
@@ -58,7 +58,7 @@ const LoginInput: React.FC<LoginInputProps> = ({ onLoginInput }) => {
         value={email}
         onChange={onEmailChange}
         onBlur={onEmailBlur}
-        hasError={signUpData && signUpData.emailID && !isEmailMatch}
+        // hasError={}
       />
       <Input
         id="pass"
@@ -69,7 +69,7 @@ const LoginInput: React.FC<LoginInputProps> = ({ onLoginInput }) => {
         value={password}
         onChange={onPasswordChange}
         onBlur={onPasswordBlur}
-        hasError={signUpData && signUpData.password && !isPassMatch}
+        // hasError={}
       />
     </div>
   );
